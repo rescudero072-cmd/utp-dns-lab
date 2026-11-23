@@ -1,0 +1,205 @@
+:root {
+  color-scheme: dark;
+  --fondo: #0a1220;
+  --panel: #101c2e;
+  --linea: #2b4059;
+  --texto: #f1f6fc;
+  --suave: #b0c1d5;
+  --acento: #7bf0d5;
+  --codigo: "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --texto-familia: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--texto-familia);
+  line-height: 1.55;
+}
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--acento); outline-offset: 4px; }
+code { font-family: var(--codigo); }
+.contenedor { width: min(1100px, calc(100% - 72px)); margin-inline: auto; }
+.saltar {
+  position: absolute;
+  z-index: 1;
+  inset: 12px auto auto 12px;
+  transform: translateY(-160%);
+  background: var(--acento);
+  color: var(--fondo);
+  padding: 10px 16px;
+}
+.saltar:focus { transform: none; }
+
+.barra {
+  border-bottom: 1px solid var(--linea);
+  background: #0c1625;
+}
+.barra-contenido, .pie-contenido {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.marca { display: inline-flex; gap: 10px; align-items: center; font-weight: 650; text-decoration: none; }
+.marca-utp {
+  display: inline-block;
+  padding: 4px 7px;
+  border: 1px solid #4b7b7c;
+  border-radius: 6px;
+  color: var(--acento);
+  font: 700 0.76rem/1.4 var(--codigo);
+}
+nav { display: flex; gap: clamp(14px, 4vw, 36px); }
+nav a, .pie a {
+  color: var(--suave);
+  text-decoration: none;
+  font-size: 0.93rem;
+  font-weight: 650;
+}
+nav a:hover, .pie a:hover, .enlace-evidencia:hover { color: var(--acento); text-decoration: underline; }
+
+.presentacion {
+  background: radial-gradient(ellipse at 78% 32%, #172e46 0%, transparent 58%), var(--fondo);
+  border-bottom: 1px solid var(--linea);
+}
+.presentacion-grid {
+  min-height: 520px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.13fr) minmax(0, 0.87fr);
+  align-items: center;
+  gap: clamp(28px, 6vw, 76px);
+  padding-block: 66px 74px;
+}
+.institucion, .asignatura {
+  margin: 0 0 11px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  color: var(--acento);
+}
+h1, h2 { line-height: 1.02; letter-spacing: -0.045em; margin: 0; }
+h1 { font-size: clamp(3.7rem, 8vw, 7.4rem); font-weight: 790; }
+h1 span { color: var(--acento); }
+.introduccion {
+  max-width: 40ch;
+  margin: 22px 0 26px;
+  color: var(--suave);
+  font-size: clamp(1.02rem, 1.8vw, 1.16rem);
+}
+.boton {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 12px;
+  border-radius: 7px;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 0.96rem;
+  font-weight: 720;
+}
+.boton-principal { background: var(--acento); color: #072527; }
+.boton-principal:hover { background: #b0fce8; }
+
+.terminal {
+  margin: 0;
+  border: 1px solid #3a546f;
+  border-radius: 13px;
+  overflow: hidden;
+  background: #0b1626;
+  box-shadow: 0 20px 78px #04081280;
+}
+.terminal figcaption {
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #15243a;
+  color: var(--suave);
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+.indicador { inline-size: 8px; block-size: 8px; border-radius: 50%; background: var(--acento); }
+.terminal-contenido { padding: clamp(16px, 3vw, 27px); font-family: var(--codigo); font-size: 0.88rem; }
+.comando, .direccion { margin: 0 0 8px; }
+.comando span, .resultado { color: var(--acento); }
+.direccion { color: var(--suave); }
+.direccion span { color: #9eafd1; }
+.respuesta { border-block: 1px solid var(--linea); margin: 18px 0 12px; padding: 11px 0; }
+.respuesta div { display: flex; justify-content: space-between; gap: 4px 18px; flex-wrap: wrap; padding-block: 4px; }
+.respuesta dt { color: var(--suave); }
+.respuesta dd { margin: 0; color: #d7eaff; }
+.resultado { margin: 0; font-weight: 680; }
+
+.laboratorio { padding-block: 58px 64px; }
+.titulo-seccion { display: flex; justify-content: space-between; align-items: end; gap: 16px 25px; flex-wrap: wrap; }
+h2 { font-size: clamp(2.25rem, 5vw, 3.4rem); font-weight: 750; }
+.enlace-evidencia { color: #c8e8ff; font-size: 0.95rem; text-underline-offset: 4px; }
+.descripcion, .nota { color: var(--suave); max-width: 72ch; }
+.descripcion { margin: 18px 0 25px; }
+.topologia { display: grid; grid-template-columns: 1fr minmax(90px, 0.42fr) 1fr; align-items: center; margin-bottom: 30px; }
+.equipo {
+  min-height: 110px;
+  display: grid;
+  align-content: center;
+  padding: 16px 20px;
+  background: var(--panel);
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+}
+.equipo span { color: var(--acento); font-weight: 680; font-size: 0.84rem; }
+.equipo strong { font-size: 1.07rem; }
+.equipo small { color: var(--suave); }
+.conexion {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  padding-inline: 12px;
+  color: var(--suave);
+  font: 0.77rem var(--codigo);
+}
+.conexion div { position: relative; width: 100%; height: 2px; background: #5e9ca8; }
+.conexion div::after {
+  position: absolute;
+  content: "";
+  top: -3px;
+  right: 1px;
+  width: 8px;
+  height: 8px;
+  transform: rotate(-45deg);
+  border-right: 2px solid #5e9ca8;
+  border-bottom: 2px solid #5e9ca8;
+}
+
+table { width: 100%; border-collapse: collapse; text-align: left; }
+caption { padding-bottom: 8px; text-align: left; font-weight: 700; }
+thead { background: #172438; }
+th, td { border-bottom: 1px solid var(--linea); padding: 11px 14px; overflow-wrap: anywhere; }
+tbody th { font-weight: 600; }
+tbody td { color: #bcefff; }
+.nota { font-size: 0.92rem; margin: 15px 0 0; }
+.pie { border-top: 1px solid var(--linea); background: #0c1625; color: var(--suave); font-size: 0.88rem; }
+
+@media (max-width: 770px) {
+  .contenedor { width: calc(100% - 42px); }
+  .presentacion-grid { grid-template-columns: 1fr; padding-block: 43px 48px; }
+  .terminal { max-width: 510px; }
+  .laboratorio { padding-block: 42px 46px; }
+}
+@media (max-width: 485px) {
+  .contenedor { width: calc(100% - 32px); }
+  .barra-contenido { flex-wrap: wrap; padding-block: 11px; gap: 5px 14px; min-height: 62px; }
+  .marca { font-size: 0.85rem; }
+  nav a { font-size: 0.8rem; }
+  .topologia { grid-template-columns: 1fr; gap: 9px; }
+  .conexion { display: none; }
+  th, td { padding: 9px 7px; font-size: 0.84rem; }
+  .pie-contenido { flex-wrap: wrap; gap: 6px 16px; padding-block: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

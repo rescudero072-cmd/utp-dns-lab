@@ -1,0 +1,11 @@
+Prueba de referencia del laboratorio DNS
+Entorno: Debian 13, Python 3.12.14
+Dependencia: dnslib 0.9.26
+Archivo de registros: dns/zona.txt
+
+$ python verificar.py
+Servidor consultado: 127.0.0.1:5300 (UDP)
+[OK] A   servidor.lab.test.         NOERROR  192.0.2.10
+[OK] PTR 10.2.0.192.in-addr.arpa.   NOERROR  servidor.lab.test.
+[OK] A   inexistente.lab.test.      NXDOMAIN sin registros
+Pruebas correctas: 3/3

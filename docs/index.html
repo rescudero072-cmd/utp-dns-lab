@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portafolio académico de Rafael Escudero, estudiante de la UTP, y práctica de resolución DNS local.">
+  <meta name="theme-color" content="#0a1220">
+  <title>Rafael Escudero · Portafolio UTP</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="barra">
+    <div class="contenedor barra-contenido">
+      <a class="marca" href="#inicio"><span class="marca-utp">UTP</span> Portafolio académico</a>
+      <nav aria-label="Navegación principal">
+        <a href="#laboratorio">Laboratorio</a>
+        <a href="CV_Rafael_Escudero.pdf">CV en PDF</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="presentacion">
+      <div class="contenedor presentacion-grid">
+        <div>
+          <p class="institucion">Universidad Tecnológica de Panamá</p>
+          <h1>Rafael<br>Escudero<span>.</span></h1>
+          <p class="introduccion">Estudiante de la UTP con interés en ciberseguridad defensiva, redes y Linux. Documento mis prácticas y cómo compruebo sus resultados.</p>
+          <a class="boton boton-principal" href="#laboratorio">Ver laboratorio DNS <span aria-hidden="true">↓</span></a>
+        </div>
+
+        <figure class="terminal" aria-label="Resultado de referencia del laboratorio DNS">
+          <figcaption><span class="indicador" aria-hidden="true"></span> Ejecución de referencia</figcaption>
+          <div class="terminal-contenido">
+            <p class="comando"><span aria-hidden="true">$</span> python verificar.py</p>
+            <p class="direccion">127.0.0.1:5300 <span>· UDP</span></p>
+            <dl class="respuesta">
+              <div><dt>Consulta A</dt><dd>192.0.2.10</dd></div>
+              <div><dt>Consulta PTR</dt><dd>servidor.lab.test.</dd></div>
+              <div><dt>Nombre inexistente</dt><dd>NXDOMAIN</dd></div>
+            </dl>
+            <p class="resultado">3 de 3 pruebas correctas</p>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section id="laboratorio" class="contenedor laboratorio">
+      <div class="titulo-seccion">
+        <div>
+          <p class="asignatura">Sistemas Colaborativos</p>
+          <h2>Resolución DNS local</h2>
+        </div>
+        <a class="enlace-evidencia" href="pruebas-dns.txt">Ver salida de la prueba <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="descripcion">El cliente envía consultas a un servidor DNS en el mismo equipo. El servidor lee dos registros de práctica y devuelve una respuesta para cada consulta.</p>
+
+      <div class="topologia" aria-label="Componentes del laboratorio">
+        <div class="equipo"><span>Cliente</span><strong>Verificador Python</strong><small>Consulta local</small></div>
+        <div class="conexion" aria-hidden="true"><span>UDP 5300</span><div></div></div>
+        <div class="equipo"><span>Servidor DNS</span><strong>127.0.0.1:5300</strong><small>Registros en dns/zona.txt</small></div>
+      </div>
+
+      <table>
+        <caption>Consultas y respuestas verificadas</caption>
+        <thead><tr><th scope="col">Consulta</th><th scope="col">Respuesta</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">A · <code>servidor.lab.test.</code></th><td><code>192.0.2.10</code></td></tr>
+          <tr><th scope="row">PTR · <code>10.2.0.192.in-addr.arpa.</code></th><td><code>servidor.lab.test.</code></td></tr>
+          <tr><th scope="row">A · <code>inexistente.lab.test.</code></th><td><code>NXDOMAIN</code></td></tr>
+        </tbody>
+      </table>
+      <p class="nota">La dirección IPv4 es un valor de ejemplo reservado para documentación. <code>NXDOMAIN</code> indica que el nombre consultado no existe en los datos del laboratorio.</p>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie-contenido">
+      <span>Rafael Escudero · Panamá · 2026</span>
+      <a href="CV_Rafael_Escudero.pdf">Abrir currículum en PDF <span aria-hidden="true">↗</span></a>
+    </div>
+  </footer>
+</body>
+</html>
